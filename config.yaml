@@ -1,0 +1,86 @@
+baseURL: 'https://example.org/'
+languageCode: 'en-us'
+title: 'Pawan Chaurasia'
+theme: 'typo'
+
+taxonomies:
+  tag: "tags"
+  category: "categories"
+
+googleAnalytics: "G-xxxxxxxxx"
+
+params:
+  menu:
+    - name: "HOME"
+      url: "/"
+      weight: 1
+    - name: "ME"
+      url: "/me"
+      weight: 2
+    - name: "ENGINEERING"
+      url: "/engineering"
+      weight: 3
+      identifier: Engineering
+    - name: "ADVENTURE"
+      url: "/adventure"
+      weight: 4
+      identifier: Adventure
+
+
+  description: "A Tech and Moto Blog"
+
+  # Appearance settings
+  theme: 'white'
+  colorPalette: 'default'
+  hideHeader: false
+  breadcrumbs: true
+  listSummaries: true
+  paginationSize: 5
+
+  # Intro on main page, content is markdown
+  homeIntroTitle: 'Hi!'
+  homeIntroContent: |
+    I am a passionate full stack developer with over 8 years of experience in software development, specializing in building high-performance systems and architecting microservices using Python, FastAPI, and SQLAlchemy. 
+    
+    My expertise in cloud infrastructure and DevOps enables me to streamline deployment processes, ensuring efficiency across projects.
+    
+    When I’m not coding, I enjoy exploring new places on my motorcycle, embracing the thrill of adventure and the freedom of the open road.
+    
+
+
+
+  # Collection to display on home
+  homeCollectionTitle: 'Posts'
+  homeCollection: ["category: Adventure", "category: engineering"]
+
+  # Social icons
+  social:
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/pawan-chaurasia/"
+    - name: "stackoverflow"
+      url: "https://stackoverflow.com/users/5060959/thedudecodes"
+    - name: "github"
+      url: "https://github.com/rjsnh1522"
+
+  # Giscus comments
+  giscus:
+    enable: true
+    repo: "user/repo"
+    repoid: "repoId"
+    category: "General"
+    categoryid: "categoryId"
+    mapping: "pathname"
+    theme: "preferred_color_scheme"
+
+# Lists parameters
+
+
+listDateFormat: '2 Jan 2006'
+
+# Breadcrumbs
+breadcrumbs: true
+
+# Syntax highlight on code blocks
+markup:
+  highlight:
+    style: 'algol'

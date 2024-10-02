@@ -1,0 +1,17 @@
+# Hugo / Typo theme generated files
+public/
+resources/_gen/
+assets/_gen/
+hugo_stats.json
+node_modules/
+*.log
+.DS_Store
+
+# Optional: Ignore config.toml if you don't want it tracked
+config.toml
+config.json
+
+# Ignore any local OS specific files
+*.swp
+.hugo_build.lock
+.idea/
