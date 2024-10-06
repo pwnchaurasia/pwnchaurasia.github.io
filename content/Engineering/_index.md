@@ -1,6 +1,6 @@
 +++
-title = "Tech"
+title = ""
 +++
 
-## Tech Posts
-A collection of posts related to tech.
+
+My take on software engineering 

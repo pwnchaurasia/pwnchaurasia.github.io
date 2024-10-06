@@ -40,7 +40,7 @@ params:
   # Intro on main page, content is markdown
   homeIntroTitle: 'Hi!'
   homeIntroContent: |
-    I am a passionate full stack developer with over 8 years of experience in software development, specializing in building high-performance systems and architecting microservices using Python, FastAPI, and SQLAlchemy. 
+    I am a passionate full stack developer with over 8+ years of experience in software development, specializing in building high-performance systems and architecting microservices using Python, FastAPI, and SQLAlchemy. 
     
     My expertise in cloud infrastructure and DevOps enables me to streamline deployment processes, ensuring efficiency across projects.
     
@@ -64,7 +64,7 @@ params:
 
   # Giscus comments
   giscus:
-    enable: true
+    enable: false
     repo: "user/repo"
     repoid: "repoId"
     category: "General"

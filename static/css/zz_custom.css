@@ -1,6 +1,6 @@
 @media only screen and (min-width: 2560px) {
     :root {
-         -main-width: 780px;
+        --main-width: 1200px;
         --main-padding: 1.4em;
         --main-padding-bottom: 3rem;
         --caption-padding: calc(.25* var(--main-padding));
