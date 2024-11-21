@@ -12,7 +12,7 @@ showTags: true
 hideBackToTop: false
 categories: ["Adventure"]
 weight: 1
-draft: false
+draft: true
 ---
 
 First of all congratulations that you have decided to ride motorcycles.

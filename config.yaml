@@ -14,9 +14,9 @@ params:
     - name: "HOME"
       url: "/"
       weight: 1
-    - name: "ME"
-      url: "/me"
-      weight: 2
+    # - name: "ME"
+    #   url: "/me"
+    #   weight: 2
     - name: "ENGINEERING"
       url: "/engineering"
       weight: 3
@@ -26,6 +26,9 @@ params:
       weight: 4
       identifier: Adventure
 
+  mainSections:
+    - Adventure
+    - Engineering
 
   description: "A Tech and Moto Blog"
 
@@ -50,8 +53,8 @@ params:
 
 
   # Collection to display on home
-  homeCollectionTitle: 'Posts'
-  homeCollection: ["category: Adventure", "category: engineering"]
+  homeCollectionTitle: ''
+  homeCollection: ["adventure", "engineering"]
 
   # Social icons
   social:
