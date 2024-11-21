@@ -14,5 +14,5 @@ hugo server
 
 #### To run on local to see drafts posts
 ```bash
-    hugo server -D
+hugo server -D
 ```

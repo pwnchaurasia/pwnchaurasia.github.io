@@ -53,7 +53,7 @@ params:
 
 
   # Collection to display on home
-  homeCollectionTitle: ''
+  homeCollectionTitle: 'Posts'
   homeCollection: ["adventure", "engineering"]
 
   # Social icons
