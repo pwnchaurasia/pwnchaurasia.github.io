@@ -11,6 +11,6 @@ tags: ["Low Level Design", "Calculation"]
 showTags: true
 hideBackToTop: false
 categories: ["Engineering"]
-weight: 2
-draft: true
+weight: 1
+draft: false
 ---

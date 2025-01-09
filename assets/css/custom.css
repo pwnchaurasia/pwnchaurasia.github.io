@@ -18,10 +18,10 @@
         --p-margin-bottom: 1rem;
         --code-margin-top: 2rem;
         --code-margin-bottom: 2rem;
-        --h1-font-size: 2.8em;
-        --h2-font-size: 2.6em;
-        --hx-font-size: 2.1em;
-        --p-font-size: 1.4em;
+        --h1-font-size: 2.2em;
+        --h2-font-size: 2em;
+        --hx-font-size: 2em;
+        --p-font-size: 1.1em;
         --p-line-height: 1.5em;
         --caption-font-size: .8em;
         --li-indent: 1.5rem;
@@ -37,15 +37,20 @@
         --table-cell-padding: .5rem;
         --table-margin-top: 1.5rem;
         --table-margin-bottom: 1.5rem;
+        --li-padding: 0.3rem 0;
+    }
+    li{
+        padding: var(--li-padding);
     }
     .line-date{
         font-size: 1rem;
-        width: 100%;
-        max-width: 100%;
-        min-width: 100%;
+
     }
     .line-summary{
         font-size: .95rem;
+    }
+    body{
+        font-size: 17px;
     }
 }
 .line-date{
@@ -63,4 +68,13 @@
 .category_date_wrapper{
     min-width: 150px;
     max-width: 150px;
+}
+
+.font-awesome-icon-font-size{
+    font-size: 1rem;
+}
+
+.red-link {
+  color: #795548;
+  text-decoration: none;
 }
