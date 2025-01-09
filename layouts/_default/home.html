@@ -1,9 +1,7 @@
 {{ define "main" }}
 
 <style>
-    .text-left{
-        text-align: left;
-    }
+
 </style>
 
 <head>
@@ -45,6 +43,10 @@
     {{- end }}
 </div>
 {{ end }}
+
+
+
+
 {{/* Collection Section */}}
 
     {{ if .Site.Params.homeCollection }}
@@ -61,19 +63,19 @@
             {{ end }}
 
 
-            {{ $posts := where .Site.RegularPages "Draft" false | last 5 }}
+            {{ $posts := where .Site.RegularPages "Draft" false }}
             {{ range $post := $posts }}
             <div class="post-line">
-                <div>
+                <div class="metadata-wrap">
                     <p class="line-date text-left"> {{$post.Date | time.Format $dateFormat}} </p>
-                    <P class="line-date text-left"> {{$post.Section | title}} </P>
+                    <P class="line-date text-left highlighter"> {{$post.Section | title}} </P>
                 </div>
 
-                <div>
+                <div class="blog-detail-wrap">
                     <p class="line-title">
                         <a href="{{ $post.RelPermalink }}">{{ $post.Title }}</a>
                     </p>
-                    <p class="line-summary"> {{ $post.Description }}</p>
+                    <p class="line-summary">{{ $post.Description }}</p>
 
                 </div>
             </div>

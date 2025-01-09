@@ -1,0 +1,13 @@
+{{ if .Site.Params.breadcrumbs }}
+<div class="breadcrumbs">
+    <a href="{{ .Site.BaseURL }}">Home</a>
+    <span class="breadcrumbs-separator"> > </span>
+
+    {{ if .Section }}
+    <a href="{{ .Site.BaseURL }}{{ .Section }}">{{ .Section | title }}</a>
+    <span class="breadcrumbs-separator"> > </span>
+    {{ end }}
+
+    <span class="breadcrumbs-current">{{ .Title }}</span>
+</div>
+{{ end }}
