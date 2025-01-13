@@ -44,6 +44,13 @@
         --li-padding: 0.3rem 0;
         --highlighter-color: #795548
     }
+    strong{
+        color: var(--highlighter-color);
+    }
+    h4{
+        font-size: 20px;
+        color: var(--highlighter-color);
+    }
     li{
         padding: var(--li-padding);
     }
