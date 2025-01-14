@@ -58,13 +58,14 @@ params:
 
   # Giscus comments
   giscus:
-    enable: false
-    repo: "user/repo"
-    repoid: "repoId"
-    category: "General"
-    categoryid: "categoryId"
+    enable: true
+    repo: "rjsnh1522/blog_comments"
+    repoid: "R_kgDONp-vFw"
+    category: "Announcements"
+    categoryid: "DIC_kwDONp-vF84Cl_FD"
     mapping: "pathname"
-    theme: "preferred_color_scheme"
+    theme: "light"
+
 
 # Lists parameters
 
