@@ -65,6 +65,12 @@
         font-size: 17px;
     }
 }
+.line-title a{
+    color: var(--highlighter-color);
+}
+.single-content h2.heading{
+    color: var(--highlighter-color);
+}
 .line-date{
     text-align: left;
 }
