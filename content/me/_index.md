@@ -36,11 +36,11 @@ Optimized CI/CD pipelines by splitting test cases across GitLab runners, slashin
 
 ## My Toolbox
 
-**Languages & Frameworks:** Python (Django, FastAPI), JavaScript
+**Languages, Frameworks & Databases:** Python (Django, FastAPI), JavaScript, Postgres, MongoDB, Redis, MQs 
 
-**Cloud Platforms:** AWS (Lambda, API Gateway, S3, Fargate), GCP
+**Cloud Platforms:** AWS (Lambda, API Gateway, S3, Fargate, SQS, SNS, RDS and many more), GCP (App Engine, BigQuery, Pub/Sub, GKE, API Gateway, Cloud Functions, Cloud Run)
 
-**DevOps & Automation:** CI/CD pipelines, Infrastructure as Code
+**DevOps & Automation:** Docker, Kubernetes, Jenkins, CI/CD pipelines
 
 **Architecture:** Microservices, Serverless Systems, API Development
 
