@@ -78,7 +78,7 @@ Once you complete a task, reflect on what worked and what didn't. This helps you
 
 
 
-### **Avoid Pitfalls**  
+## **Avoid Pitfalls**  
 
 Taking ownership doesn't mean acting without consideration—it’s about knowing when to take initiative and when to seek approval.  
 
