@@ -16,3 +16,8 @@ hugo server
 ```bash
 hugo server -D
 ```
+
+
+when you clone the repo, you will have to clone the typo theme too in themes typo folder
+from here 'https://themes.gohugo.io/themes/typo/'
+

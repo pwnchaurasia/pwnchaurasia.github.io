@@ -1,4 +1,4 @@
-baseURL: 'https://rjsnh1522.github.io'
+baseURL: 'http://localhost:1313/'
 languageCode: 'en-us'
 title: 'Pawan Chaurasia'
 theme: 'typo'
@@ -33,7 +33,7 @@ params:
   description: "A Tech and Moto Blog"
 
   # Appearance settings
-  theme: 'white'
+  theme: 'dark'
   colorPalette: 'default'
   hideHeader: false
   breadcrumbs: true
@@ -64,7 +64,7 @@ params:
     category: "Announcements"
     categoryid: "DIC_kwDONp-vF84Cl_FD"
     mapping: "pathname"
-    theme: "light"
+    theme: "dark"
 
 
 # Lists parameters
