@@ -58,7 +58,7 @@ params:
 
   # Giscus comments
   giscus:
-    enable: false
+    enable: true
     repo: "rjsnh1522/blog_comments"
     repoid: "R_kgDONp-vFw"
     category: "Announcements"

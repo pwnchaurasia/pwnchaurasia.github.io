@@ -62,10 +62,12 @@ For scaling to thousands of users, we’ll use RabbitMQ. To interact with it in 
 pip install pika
 ```
 
+*Pro tip: If you don’t have Redis installed on your system, just search for <span class="span_highlight"> How to set up RabbitMQ on [your OS]</span> (Linux, Mac, Windows, etc.). It’s straightforward, and there are plenty of guides out there!*
+
 #### Why This Setup?
 - <span class="span_highlight">FastAPI:</span> Because it’s fast, modern, and perfect for real-time apps.
 - <span class="span_highlight">Redis:</span> For in-memory data storage and real-time updates.
-- <span class="span_highlight">Pika:</span> To handle message brokering when we scale (because dreams do come true, right?).
+- <span class="span_highlight">RabbitMQ:</span> To handle message brokering when we scale (because dreams do come true, right?).
 
 
 ## Writing the Code: Let’s Get Real-Time
@@ -473,9 +475,120 @@ Some deployments (with Redis Cluster, Sentinel, or sharding) scale far beyond th
 
 
 ## The Dream Scale: Handling Thousands of Users
+Now that we’ve scaled with Redis, let’s dream bigger. What if your app goes viral and needs to handle thousands (or millions) of users? Enter RabbitMQ (and friends).
+
+#### Why RabbitMQ?
+RabbitMQ is a message broker designed for:
+
+- <span class="span_highlight">High Throughput:</span> Handles millions of messages per second.
+- <span class="span_highlight">Message Queuing:</span> Ensures no messages are lost, even under heavy load.
+- <span class="span_highlight">Complex Routing:</span> Supports advanced routing patterns (e.g., fanout, direct, topic).
+
+If your app needs:
+- Guaranteed message delivery.
+- Complex message routing.
+- High throughput (millions of messages/second).
+RabbitMQ is your go-to tool.
+
+#### Back-of-the-Envelope Calculations
+
+<b> Redis:</b>
+
+- Handles ~10,000–20,000 users comfortably.
+- Great for real-time broadcasting and simple Pub/Sub.
+- Bottleneck: CPU and memory on a single server.
+
+<b> RabbitMQ: </b>
+
+- Handles millions of messages/second.
+- Uses disk-based storage for messages, ensuring reliability.
+- Scales horizontally with clusters.
+
+<b> Practical Limits: </b>
+- Single RabbitMQ Server: ~50,000–100,000 users.
+- RabbitMQ Cluster: Millions of users (distributed across multiple servers).
+
+
+#### RabbitMQ Connection Manager
+
+```python
+# rabbitmq_connection_manager.py
+
+import pika
+import json
+
+class RabbitMQManager:
+    def __init__(self):
+        self.connection = pika.BlockingConnection(pika.ConnectionParameters("localhost"))
+        self.channel = self.connection.channel()
+        self.channel.exchange_declare(exchange="chat", exchange_type="fanout")
+
+    def publish(self, message):
+        self.channel.basic_publish(exchange="chat", routing_key="", body=json.dumps(message))
+
+    def consume(self, callback):
+        result = self.channel.queue_declare(queue="", exclusive=True)
+        queue_name = result.method.queue
+        self.channel.queue_bind(exchange="chat", queue=queue_name)
+        self.channel.basic_consume(queue=queue_name, on_message_callback=callback, auto_ack=True)
+        self.channel.start_consuming()
+
+```
+
+
+```python
+# web_socket.py
+
+from fastapi import FastAPI, WebSocket
+from rabbitmq_connection_manager import RabbitMQManager
+
+app = FastAPI()
+
+redis_manager = RabbitMQManager()
+
+
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    await websocket.accept()
+    redis_manager.subscribe("chat")  # Subscribe to the "chat" channel
+    username = None
+    try:
+      # Receive the username from the frontend
+        username = await websocket.receive_text()
+        print(f"INFO: {username} connected")
+        while True:
+            data = await websocket.receive_text()
+            redis_manager.publish("chat", {"user": username, "message": data})
+    except Exception as e:
+        print(f"ERROR: {e}")
+    finally:
+        redis_manager.pubsub.unsubscribe("chat")
+        print(f"INFO: {username} disconnected")
+
+```
+
+#### Managed Services vs. Self-Hosted
+<b>Managed Services: </b>
+
+- Pros: No setup hassle, automatic scaling, and maintenance.
+- Examples: Google Pub/Sub, AWS SQS, Azure Service Bus.
+
+<b>Self-Hosted:</b>
+- Pros: Full control, great for learning, and cost-effective for small to medium apps.
+- Cons: You handle scaling, maintenance, and troubleshooting.
+
+<b>Why Self-Hosted? </b>
+
+If you’re like me and enjoy solving problems (and occasionally crying over server logs), self-hosting RabbitMQ is a great learning opportunity. Plus, it’s satisfying to see your app scale!
+
 
 
 ## Conclusion: Real-Time Apps Made Simple
 
 
-With Redis, you can handle 10x more users than with a Python ConnectionManager. And if your app goes viral, Redis will be your best friend (until you need RabbitMQ). Stay tuned for the next section, where we’ll scale even further!
+Building real-time apps requires the right balance of speed, scalability, and reliability. A Python-based connection manager works for small apps but struggles under heavy load. Redis Pub/Sub efficiently scales WebSockets but lacks message persistence. For guaranteed delivery, RabbitMQ or managed pub/sub services are the best choices.
+
+Choose Redis for speed, RabbitMQ for reliability, or a hybrid approach for the best of both worlds. 🚀
+
+#### What Are Your Thoughts?
+Real-time scalability is an evolving challenge, and every use case is unique. Which approach has worked best for you? Have you faced scaling challenges with WebSockets? Share your experiences, insights, or questions in the comments below! 👇
