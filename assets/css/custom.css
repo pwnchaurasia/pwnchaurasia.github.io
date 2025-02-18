@@ -1,5 +1,17 @@
 :root {
-    --highlighter-color: #795548
+    --body-background: #0C131D;
+    --highlighter-color: #A8925E;
+    --content-primary: #DDDDDD;
+    --emphesis: #E1C999
+}
+.dark {
+    background-color: var(--body-background);
+    --content-primary: #BFBFBF !important;
+    --font-body: 'Poppins', sans-serif;
+}
+
+.span_highlight{
+    color: var(--highlighter-color);
 }
 
 @media only screen and (min-width: 2560px) {
@@ -42,13 +54,17 @@
         --table-margin-top: 1.5rem;
         --table-margin-bottom: 1.5rem;
         --li-padding: 0.3rem 0;
-        --highlighter-color: #795548
     }
+
     strong{
         color: var(--highlighter-color);
     }
     h4{
         font-size: 20px;
+        color: var(--highlighter-color);
+    }
+    h5{
+        font-size: 18.9px;
         color: var(--highlighter-color);
     }
     li{

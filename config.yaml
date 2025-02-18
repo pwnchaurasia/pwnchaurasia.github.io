@@ -58,7 +58,7 @@ params:
 
   # Giscus comments
   giscus:
-    enable: true
+    enable: false
     repo: "rjsnh1522/blog_comments"
     repoid: "R_kgDONp-vFw"
     category: "Announcements"
@@ -80,3 +80,12 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    style: "solarized-dark"
+    lineNumbers: true
+  tableOfContents:
+    startLevel: 2  # Start from H2
+    endLevel: 4    # Include up to H4
+    ordered: false # Use bullet points instead of numbers
