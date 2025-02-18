@@ -1,6 +1,6 @@
 ---
 title: "WebSockets in FastAPI: From Basics to Scaling"
-date: 2025-02-15
+date: 2025-02-18
 summary: "WebSockets enable real-time, bidirectional communication, perfect for chat apps, live notifications, and gaming. FastAPI, a modern Python framework, makes it easy to implement WebSockets for scalable, real-time applications. This blog walks you through setting up WebSocket connections, handling messages, and managing client-server interactions in FastAPI, with practical examples and best practices."
 description: "Implement WebSockets in FastAPI, from basic setups for small projects to advanced, scalable solutions for industry-level applications, with practical examples and best practices."
 toc: false
