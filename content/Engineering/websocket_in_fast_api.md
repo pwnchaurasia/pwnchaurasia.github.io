@@ -54,7 +54,7 @@ pip install redis
 
 *Pro tip: If you don’t have Redis installed on your system, just search for <span class="span_highlight"> How to set up Redis on [your OS]</span> (Linux, Mac, Windows, etc.). It’s straightforward, and there are plenty of guides out there!*
 
-#### Step 3: Install Pika for RabbitMQ
+#### Step 3: Install RabbitMQ and Pika for RabbitMQ
 
 For scaling to thousands of users, we’ll use RabbitMQ. To interact with it in Python, we’ll use Pika:
 
@@ -62,7 +62,7 @@ For scaling to thousands of users, we’ll use RabbitMQ. To interact with it in 
 pip install pika
 ```
 
-*Pro tip: If you don’t have Redis installed on your system, just search for <span class="span_highlight"> How to set up RabbitMQ on [your OS]</span> (Linux, Mac, Windows, etc.). It’s straightforward, and there are plenty of guides out there!*
+*Pro tip: If you don’t have RabbitMQ installed on your system, just search for <span class="span_highlight"> How to set up RabbitMQ on [your OS]</span> (Linux, Mac, Windows, etc.). It’s straightforward, and there are plenty of guides out there!*
 
 #### Why This Setup?
 - <span class="span_highlight">FastAPI:</span> Because it’s fast, modern, and perfect for real-time apps.
@@ -344,104 +344,204 @@ We’ll create a singleton Redis connection to manage WebSocket connections and 
 
 ```python
 # reddis_connection_manager.py
-
-import redis
+from redis.asyncio import Redis
 import json
+from fastapi import WebSocket
 import asyncio
+from typing import Dict
+import uuid
 
-class RedisManager:
+class RedisConnectionManager:
     def __init__(self):
-        self.redis = redis.Redis(host="localhost", port=6379, db=0)
-        self.pubsub = self.redis.pubsub()
-        self.active_connections = set()
-
-    async def subscribe(self, websocket, channel):
-        self.active_connections.add(websocket)
-        self.pubsub.subscribe(channel)
-        await self.listen(websocket, channel)
-
-    async def listen(self, websocket, channel):
-        for message in self.pubsub.listen():
-            if message["type"] == "message":
-                data = json.loads(message["data"])
-                await websocket.send_text(json.dumps(data))  # Send to the client
-
-    def publish(self, channel, message):
-        self.redis.publish(channel, json.dumps(message))
-
-    async def unsubscribe(self, websocket, channel):
-        self.active_connections.remove(websocket)
-        self.pubsub.unsubscribe(channel)
-
+        self.redis = Redis(host="localhost", port=6379, db=0)
+        # Generate a unique ID for this server instance
+        self.server_id = str(uuid.uuid4())
+        
+    async def connect(self, websocket: WebSocket, client_id: str):
+        """Register new WebSocket connection in Redis"""
+        await websocket.accept()
+        
+        # Store client info in Redis
+        client_data = {
+            'server_id': self.server_id,
+            'client_id': client_id,
+            'timestamp': asyncio.get_event_loop().time()
+        }
+        
+        # Use Redis pipeline for atomic operations
+        async with self.redis.pipeline(transaction=True) as pipe:
+            # Add to active clients set
+            await pipe.sadd('active_clients', client_id)
+            # Store client metadata
+            await pipe.hset(f'client:{client_id}', mapping=client_data)
+            await pipe.execute()
+            
+        print(f"Client {client_id} connected to server {self.server_id}")
+        
+        # Start message listener for this client
+        asyncio.create_task(self._client_listener(websocket, client_id))
+        
+    async def disconnect(self, client_id: str):
+        """Remove client from Redis"""
+        async with self.redis.pipeline(transaction=True) as pipe:
+            await pipe.srem('active_clients', client_id)
+            await pipe.delete(f'client:{client_id}')
+            await pipe.execute()
+            
+        print(f"Client {client_id} disconnected from server {self.server_id}")
+    
+    async def broadcast(self, message: dict):
+        """Broadcast message to all active clients"""
+        message_str = json.dumps(message)
+        await self.redis.publish('broadcast_channel', message_str)
+    
+    async def _client_listener(self, websocket: WebSocket, client_id: str):
+        """Listen for messages intended for this specific client"""
+        pubsub = None
+        try:
+            pubsub = self.redis.pubsub()
+            await pubsub.subscribe('broadcast_channel')
+            
+            while True:
+                try:
+                    message = await pubsub.get_message(ignore_subscribe_messages=True)
+                    if message and message["type"] == "message":
+                        # Check if client is still active
+                        is_active = await self.redis.sismember('active_clients', client_id)
+                        if not is_active:
+                            break
+                            
+                        # Forward message to WebSocket
+                        await websocket.send_text(message["data"].decode())
+                        
+                except Exception as e:
+                    print(f"Error sending to client {client_id}: {e}")
+                    break
+                    
+                await asyncio.sleep(0.01)
+                
+        finally:
+            if pubsub:
+                await pubsub.unsubscribe()
+                await pubsub.close()
+            await self.disconnect(client_id)
 ```
 
 #### Update the WebSocket Endpoint
 
 ```python
 # web_socket.py
-from fastapi import FastAPI, WebSocket
-from reddis_connection_manager import RedisManager
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from redis_conn_manager import RedisConnectionManager
+
 
 app = FastAPI()
-
-redis_manager = RedisManager()
-
+redis_manager = RedisConnectionManager()
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
-    await websocket.accept()
-    redis_manager.subscribe("chat")  # Subscribe to the "chat" channel
-    username = None
+    client_id = str(id(websocket))
     try:
-      # Receive the username from the frontend
-        username = await websocket.receive_text()
-        print(f"INFO: {username} connected")
+        await redis_manager.connect(websocket, client_id)
         while True:
             data = await websocket.receive_text()
-            redis_manager.publish("chat", {"user": username, "message": data})  # Broadcast to Redis
+            message = {
+                "client_id": client_id,
+                "server_id": redis_manager.server_id,
+                "message": data
+            }
+            await redis_manager.broadcast(message)
+    except WebSocketDisconnect:
+        await redis_manager.disconnect(client_id)
     except Exception as e:
-        print(f"ERROR: {e}")
-    finally:
-        redis_manager.pubsub.unsubscribe("chat")
-        print(f"INFO: {username} disconnected")
+        print(f"Error handling websocket: {e}")
+        await redis_manager.disconnect(client_id)
 
 ```
 Use this in the html response for the root page
 
 ```javascript
-
-  // Generate a random username (e.g., "AnonymousXYZ")
+ // Generate a random username (e.g., "AnonymousXYZ")
   const generateUsername = () => {
       const randomPart = Math.random().toString(36).substring(2, 5).toUpperCase();
-      return `Anonymous${randomPart}`;
+      return `Anonymous - ${randomPart}`;
   };
 
   const username = generateUsername(); // Assign a random username
   const ws = new WebSocket("ws://localhost:8081/ws");
-
-  // Send the username to the server
+          
   ws.onopen = () => {
+      console.log("WebSocket connected ✅");
       ws.send(username); // Send the username first
   };
+  ws.onerror = (event) => {
+      console.error("WebSocket error ❌:", event);
+  };
+
 
   // Function to send a message
   const sendMessage = () => {
-      const message = document.getElementById("message").value;
-      if (message.trim() === "") return; // Don't send empty messages
-      ws.send(message); // Send only the message (username is already known)
+      const message = document.getElementById("message").value.trim();
+      if (message === "") return; // Prevent sending empty messages
+
+      ws.send(`${message}`);
       document.getElementById("message").value = ""; // Clear the input box
+
   };
 
   // Display incoming messages
   ws.onmessage = (event) => {
-      const data = JSON.parse(event.data); // Parse the message
       const messages = document.getElementById("messages");
       const li = document.createElement("li");
-      li.textContent = `${data.user}: ${data.message}`;
+      console.log(event.data);
+      li.textContent = event.data;
       messages.appendChild(li);
   };
-    
 ```
+
+#### Code Breakdown
+
+Let's dive into how our distributed chat system actually works (without the fluff):
+
+<b> Connection Setup</b>
+
+```python
+async def connect(self, websocket: WebSocket, client_id: str):
+```
+
+- Each new connection gets a unique ID
+- Redis stores this in two places: `active_clients` set and `client:{id}` hash (their personal details)
+- No storing connections in memory, for single server you can do that python memory, but that won't scale
+
+<b>Message Broadcasting</b>
+
+```python
+async def broadcast(self, message: dict):
+```
+
+- Takes a message and publishes to Redis channel
+- Like shouting in a room, but more sophisticated
+- Redis handles the heavy lifting of message distribution
+
+<b>The Magic Listener</b>
+
+```python
+async def _client_listener(self, websocket: WebSocket, client_id: str):
+```
+
+- Each client gets their own listener (personal DJ if you will)
+- Subscribes to Redis channel
+- Forwards messages to the right WebSocket
+- Dies gracefully when connection drops (RIP)
+
+<b>Disconnection</b>
+```python
+async def disconnect(self, client_id: str):
+```
+- Removes client from Redis sets and hashes
+- Like checking out of a hotel, but we actually clean up after ourselves
+
+
 
 ####  Scaling with Redis (Math Edition)
 
@@ -466,13 +566,15 @@ Some deployments (with Redis Cluster, Sentinel, or sharding) scale far beyond th
 
 <b>Why Redis Wins</b>
 
-- <span class="span_highlight">Optimized Broadcasting:</span>Pub/Sub efficiently delivers messages with minimal latency.
-- <span class="span_highlight">Scalable Architecture:</span>Supports clustering and sharding for handling massive user loads.
-- <span class="span_highlight">Lower CPU Overhead:</span>Offloads message distribution from the application server.
-- <span class="span_highlight">High Throughput:</span>Handles thousands of messages per second with minimal performance loss.
-- <span class="span_highlight">Reliable Scaling:</span>Works with load balancers and multiple Redis instances for redundancy.
+- <span class="span_highlight">Optimized Broadcasting:</span> Pub/Sub efficiently delivers messages with minimal latency.
+- <span class="span_highlight">Scalable Architecture:</span> Supports clustering and sharding for handling massive user loads.
+- <span class="span_highlight">Lower CPU Overhead:</span> Offloads message distribution from the application server.
+- <span class="span_highlight">High Throughput:</span> Handles thousands of messages per second with minimal performance loss.
+- <span class="span_highlight">Reliable Scaling:</span> Works with load balancers and multiple Redis instances for redundancy.
 
 
+This setup lets us scale horizontally - just add more servers like adding more pizza to a party. 
+Each server is independent but they all work together through Redis, like a well-oiled machine (that runs on caffeine). That's it! No memory leaks, no server drama, just clean, scalable code!
 
 ## The Dream Scale: Handling Thousands of Users
 Now that we’ve scaled with Redis, let’s dream bigger. What if your app goes viral and needs to handle thousands (or millions) of users? Enter RabbitMQ (and friends).
