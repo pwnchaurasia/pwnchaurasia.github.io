@@ -21,14 +21,14 @@ params:
       url: "/engineering"
       weight: 3
       identifier: Engineering
-    - name: "ADVENTURE"
-      url: "/adventure"
-      weight: 4
-      identifier: Adventure
+#    - name: "ADVENTURE"
+#      url: "/adventure"
+#      weight: 4
+#      identifier: Adventure
 
   mainSections:
     - Adventure
-    - Engineering
+#    - Engineering
 
   description: "A Tech and Moto Blog"
 

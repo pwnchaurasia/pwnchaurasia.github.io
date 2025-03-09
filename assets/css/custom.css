@@ -13,6 +13,9 @@
 .span_highlight{
     color: var(--highlighter-color);
 }
+p code{
+    background: #3e3624;
+}
 
 @media only screen and (min-width: 2560px) {
     :root {
