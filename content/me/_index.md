@@ -4,9 +4,10 @@ title = "Who Am I?"
 
 A Senior Full Stack Developer with 9+ years of experience in building systems that perform under pressure. My work combines the art of crafting scalable architectures with the science of reliable cloud infrastructure, all while delivering elegant solutions to complex problems
 
-- Staff Engineer @ <a href="https://www.rapidfort.com/" target="_blank" class="red-link"> <i class="fas fa-external-link-alt font-awesome-icon-font-size red-link"></i> RapidFort</a> : Working on scaling the application to acquire more customers and infra to support load.
+[//]: # (- Staff Engineer @ <a href="https://www.rapidfort.com/" target="_blank" class="red-link"> <i class="fas fa-external-link-alt font-awesome-icon-font-size red-link"></i> RapidFort</a> : Working on scaling the application to acquire more customers and infra to support load.)
 - Senior Software Engineer @ <a href="https://www.latitudefinancial.com.au/" target="_blank" class="red-link"> <i class="fas fa-external-link-alt font-awesome-icon-font-size red-link"></i> LatitudePay </a> : Scaled the Fintech app, LatitudePay from 19k customers to more 
   than 1 Lak customers in Singapore and Malaysia. Built Ledger management for merchant payouts, EMI Recovery processors.
+- Module Lead @ <a href="https://www.mindtree.com" target="_blank" class="red-link"><i class="fab fa-linkedin font-awesome-icon-font-size red-link"></i> MindTree</a> :Architected and developed a web application framework that automated QA testing processes for various Cisco servers, eliminating manual efforts and reducing manual testing time to near-zero, significantly improving QA efficiency.
 - Full Profile: <a href="https://www.linkedin.com/in/pawan-chaurasia/" class="red-link" target="_blank"> <i class="fab fa-linkedin font-awesome-icon-font-size red-link"></i> Pawan Chaurasia  </a>
 
 
