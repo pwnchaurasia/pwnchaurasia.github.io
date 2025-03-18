@@ -1,7 +1,7 @@
 ---
-title: "AIM: First Time Right"
-date: 2025-03-03
-summary: "This blog extends our previous discussion on WebSockets with FastAPI. Sure, everything worked fine, but I conveniently skipped the most important part—security. Oops! Consider this my redemption post, where I’ll dive deep into securing WebSocket connections and, of course, sneak in some crude humor because why should security be boring?"
+title: "AIMING: First Time Right While Developing Software"
+date: 2025-03-16
+summary: "Aiming for making software first time right, is the essence of building a software, You try your best to think about most of the things before starting to code, which minimizes the back n forth, obvious bugs. We will deep dive more about this in this blog"
 description: "Learn how to secure WebSocket connections by comparing session-based authentication and JWTs, understanding the importance of WSS over WS, and implementing additional security measures like message validation, rate limiting, and CORS policies. This blog builds on our FastAPI WebSocket implementation to ensure your real-time applications are both performant and secure."
 toc: false
 readTime: true
@@ -15,4 +15,105 @@ weight: 1
 draft: true
 ---
 
+## Sharpening the Axe: The Importance of Preparation 
 
+
+There's a famous saying by Abraham Lincoln: "Give me six hours to chop down a tree, and I will spend the first four sharpening the axe."
+
+This isn't about spending exactly 66% of your time preparing. Instead, it's a reminder to think, plan, and prepare before diving into a task. Spending time upfront can save you time later and improve the quality of your work.
+
+Early in my career, I often fell into the black box pattern. Whenever a senior engineer handed me a task, I'd jump straight into coding. My goal was simple: finish the task as quickly as possible. And while I usually got the job done, sometimes I used to miss the edge case because it was not properly planned and the issue got found in dev testing or manual QA, Then I used to think "This could have been done better," or "I should have considered this edge case?" Over time, as I became more familiar with the codebase and the organization's processes, the number of issues got decreased. But my initial approach was far from ideal.
+
+As a junior developer, you’re often handed tasks with little to no explanation. There's always this nagging fear: What if I take too long? What if I can't finish on time if I spend too much time understanding the code? This fear pushes many of us to skip preparation and jump straight into coding.
+
+You might be wondering, `The writer hasn't even mentioned 'Aiming for First Time Right' yet!` Don't worry—I'll get to that. After all, I'm also aiming to explain this concept right the first time.
+
+
+
+## From Code Fixer to Feature Builder: A New Challenge 
+
+
+As I grew in my role, my responsibilities shifted. I went from fixing bugs to building entirely new features. Instead of clear tasks, I now heard vague statements like, “We need something like this.” It was intimidating—I was used to solving puzzles, but now I had to create from scratch.
+
+I realized I couldn’t just jump into coding. The feature was too big, and I couldn’t rely on memory alone. So, I started planning. I read documentation, researched tools, and broke the problem into smaller steps. With no formal documentation process, I used Evernote to track my approach. It wasn’t structured, but it worked for me.
+
+This was a turning point. I learned that planning and documentation weren’t optional—they were essential. By thinking ahead and documenting my process, I built the feature successfully and gained confidence.
+
+#### Early Career: Startups and MVPs
+
+In my first four years, I worked at early-stage startups. Each person handled one project at a time—small Python-Django web apps or MVPs like a malware analysis tool. As the sole developer, I often relied on memory or went back to the CTO for reminders. There was no formal process—just rough notes, quick dev testing, and countless back-and-forths.
+
+Delivering quickly was prioritized over perfection. We did what made sense at the time, and it worked. The CTO was happy, and so was I. I thought, Maybe this is just how things get done.
+
+Then I joined LatitudePay, and everything changed.
+
+
+
+
+## Joining LatitudePay: A New approach
+
+At LatitudePay, I was introduced to structured processes for the first time. They had onboarding docs to help new joiners get up to speed quickly—something I later contributed to improving. Everything was documented: features, discussions, and agreements between the business and tech teams. With around 50 people involved—12 backend engineers, 3 QA, and 4 mobile developers—this level of documentation was essential to avoid chaos and endless back-and-forth.
+
+I joined during a critical phase. The team had 90 days to release the product in Malaysia with a new lending process, app design, and additional tenures of 6 and 12 months. For the first time in my career, I saw that we weren’t jumping straight into coding. Instead, the CTO (Amit Kumar), the Architect (Nikhil Ramteke), and team leads spent a week discussing and documenting every detail. We mapped out potential issues, API contracts, app designs, and flows. I was leading the payments team, even though I had only been with the company for a month.
+
+We used Test-Driven Development (TDD), where Jira tickets included all testing scenarios upfront. This helped both developers and QA, as anyone could add more scenarios if needed. We wrote tests, built the feature, and released it on time. The launch was smooth—customers were onboarded, purchases went through seamlessly, and we received praise from the CEO and COO.
+
+Two weeks later, Nikhil shared a message in Slack thanking everyone. He mentioned that we had “Aimed for First Time Right” and succeeded. There were no bugs, delays, or issues—everything went as planned.
+
+This was my introduction to the concept of “Aiming: First Time Right.” Curious, I asked Nikhil about it during a casual conversation. His explanation was profound, and it has since deeply influenced my engineering journey.
+
+
+## Aiming for First Time Right: The Philosophy That Changed Everything
+
+When Nikhil explained the concept of Aiming for First Time Right, it resonated deeply with me. He broke it down into three key pillars: Requirements and Time, Documentation, and Development, QA, and Deployment. Each pillar plays a critical role in ensuring that the team delivers a bug-free, robust, and on-time product. Here’s how it worked at LatitudePay and why it was such a success.
+
+
+
+#### Requirements and Time: The foundation
+
+Nikhil emphasized that clear requirements and realistic timelines are the backbone of First Time Right. Without them, teams risk building the wrong thing or missing critical details. At LatitudePay, this meant bringing together stakeholders from the business team, backend leads, mobile leads, QA leads, and DevOps to discuss and finalize requirements. Most of the back-and-forth happened during this phase, as each team raised concerns and resolved them upfront.
+
+Our CTO, Amit Kumar, often reminded us, “You’re here to prepare for leadership. If you learn today, you’ll take on more responsibilities tomorrow.” This mindset encouraged everyone to actively participate and take ownership of their work.
+
+Each developer and lead estimated their tasks, adding a 20% buffer for unforeseen issues. As Amit used to say, “It’s better to under-commit and over-deliver than the other way around.” While we had finite timeframes, we always aimed for reasonable and achievable deadlines.
+
+
+
+#### Documentation: The Single Source of structured
+
+
+Documentation was non-negotiable. It captured decisions, API contracts, design flows, and edge cases, serving as a reference point for everyone. This reduced chaos and ensured that teams weren’t wasting time in endless discussions or repeating work.
+
+I observed that writing things down often brought clarity. When you document, you see potential problems before they arise. At LatitudePay, every stakeholder agreed on the documentation, which made it easier to track progress and stay aligned.
+
+
+#### Development, QA, and Deployment: Execution with Precision
+
+
+
+With a large codebase and multiple features to release, we adopted a feature flagging approach. This allowed us to build, test, and deploy features without disrupting the live environment. When the time came, we simply enabled the flags, and everything worked seamlessly.
+
+We also followed Test-Driven Development (TDD). For every feature, we wrote all possible test scenarios before writing code. This not only helped developers think through edge cases but also reduced the burden on QA. By the time we released the feature, we had around 1,700 test cases. While this created its own challenges (a story for another blog), it ensured a robust and reliable product.
+
+Deployments happened every Tuesday. We released backend code first, then rolled out the app to 10% of users. After confirming no issues, we expanded to 50% of users within three days and the remaining users in two more days. This cautious approach paid off—customer numbers grew from 19,000 in Singapore to 80,000, and the newly launched app in Malaysia gained 30,000 customers. The GMV (Gross Merchandise Value) also saw a significant boost.
+
+
+
+
+_Aiming for First Time Right_ isn’t just about delivering bug-free software—it’s about building a culture of excellence. It saves time, reduces stress, and fosters trust within the team and with stakeholders. While it requires effort upfront, the long-term benefits far outweigh the initial investment.
+
+
+
+
+
+## How I Applied First Time Right in My Work and Personal Projects
+
+After the success of First Time Right at LatitudePay, I started applying this approach to other projects. Whether it was a new payment gateway or optimizing an existing feature, I focused on:
+
+- <b class="span_highlight">Planning:</b> Breaking tasks into smaller steps and documenting the approach.
+- <b class="span_highlight">Testing: </b> Using TDD to ensure robustness and cover edge cases.
+- <b class="span_highlight">Communication:</b> Keeping everyone aligned with clear documentation and updates.
+
+This not only reduced rework but also gave me the confidence to tackle complex tasks without fear of last-minute surprises.
+
+For my personal projects, which I don’t work on often, documentation has been a lifesaver. I created guides for setup, testing, and deployment, along with detailed code comments and changelogs. Now, even after months, I can quickly pick up where I left off, saving hours of frustration.
