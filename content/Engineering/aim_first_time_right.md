@@ -12,7 +12,7 @@ showTags: true
 hideBackToTop: false
 categories: ["Engineering"]
 weight: 1
-draft: true
+draft: false
 ---
 
 ## Sharpening the Axe: The Importance of Preparation 
