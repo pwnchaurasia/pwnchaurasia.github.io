@@ -1,9 +1,9 @@
 ---
 title: "AIMING: First Time Right While Developing Software"
 date: 2025-03-16
-summary: "Aiming for making software first time right, is the essence of building a software, You try your best to think about most of the things before starting to code, which minimizes the back n forth, obvious bugs. We will deep dive more about this in this blog"
-description: "Learn how to secure WebSocket connections by comparing session-based authentication and JWTs, understanding the importance of WSS over WS, and implementing additional security measures like message validation, rate limiting, and CORS policies. This blog builds on our FastAPI WebSocket implementation to ensure your real-time applications are both performant and secure."
-toc: false
+summary: '"Aiming for First Time Right" explores how planning, documentation, and rigorous testing can transform software development, sharing personal experiences from early startups to structured teams at LatitudePay.' 
+description: "This blog dives into the philosophy of First Time Right, highlighting its importance in reducing chaos and delivering high-quality software. Through personal stories and practical insights, it shows how preparation and collaboration can save time, build confidence, and lead to successful outcomes."
+shiftedoc: false
 readTime: true
 autonumber: false
 math: false
