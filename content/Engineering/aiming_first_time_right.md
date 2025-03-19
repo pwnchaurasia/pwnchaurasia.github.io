@@ -7,7 +7,7 @@ shiftedoc: false
 readTime: true
 autonumber: false
 math: false
-tags: ["FastAPI", "Python", "Websocket", "Security", "JWT", "Session"]
+tags: ["Software Development", "Planning & Documentation", "Engineering", "Best Practices", "Productivity"]
 showTags: true
 hideBackToTop: false
 categories: ["Engineering"]
