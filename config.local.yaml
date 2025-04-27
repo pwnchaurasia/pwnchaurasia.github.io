@@ -47,10 +47,8 @@ params:
   homeCollectionTitle: 'Posts'
   homeCollection: ["adventure", "engineering"]
 
-  
-  trackerDomainId: "fb8e3309-4543-48f4-b791-38aef0166f80"
-  trackerBaseUrl: 'https://pagepulse-production.up.railway.app'
-
+  trackerDomainId: "6193fb78-412b-440a-809c-fc50712ae7a1"
+  trackerBaseUrl: 'http://0.0.0.0:8080'  
 
   # Social icons
 #  social:
@@ -63,7 +61,7 @@ params:
 
   # Giscus comments
   giscus:
-    enable: true
+    enable: false
     repo: "rjsnh1522/blog_comments"
     repoid: "R_kgDONp-vFw"
     category: "Announcements"
