@@ -1,8 +1,9 @@
 :root {
     --body-background: #0C131D;
-    --highlighter-color: #A8925E;
-    --content-primary: #DDDDDD;
-    --emphesis: #E1C999
+    --highlighter-color: #df9a57;
+    /* --content-primary: #DDDDDD; */
+    --emphesis: #E1C999;
+    /* --content-secondary: #dfe0e2; */
 }
 .dark {
     background-color: var(--body-background);
@@ -129,7 +130,7 @@ strong {
   color: var(--highlighter-color);
   text-decoration: none;
 }
-..post-line{
+.post-line{
     margin-bottom: .9rem;
 }
 

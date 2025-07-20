@@ -38,7 +38,7 @@ params:
   hideHeader: false
   breadcrumbs: true
   listSummaries: true
-  paginationSize: 5
+  paginationSize: 10
 
   # Intro on main page, content is markdown
 
@@ -47,6 +47,7 @@ params:
   homeCollectionTitle: 'Posts'
   homeCollection: ["adventure", "engineering"]
 
+  isTrackerEnabled: false
   trackerDomainId: "6193fb78-412b-440a-809c-fc50712ae7a1"
   trackerBaseUrl: 'http://0.0.0.0:8080'  
 

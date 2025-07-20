@@ -47,7 +47,7 @@ params:
   homeCollectionTitle: 'Posts'
   homeCollection: ["adventure", "engineering"]
 
-  
+  isTrackerEnabled: false
   trackerDomainId: "fb8e3309-4543-48f4-b791-38aef0166f80"
   trackerBaseUrl: 'https://pagepulse-production.up.railway.app'
 

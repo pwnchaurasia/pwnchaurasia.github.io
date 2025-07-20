@@ -2,66 +2,63 @@
 title = "Who Am I?"
 +++
 
-A Senior Full Stack Developer with 9+ years of experience in building systems that perform under pressure. My work combines the art of crafting scalable architectures with the science of reliable cloud infrastructure, all while delivering elegant solutions to complex problems
+A Senior Software Engineer with 9+ years of experience building systems that solve real problems. I specialize in payment systems, distributed architectures, and turning complex business requirements into reliable software that scales.
 
-[//]: # (- Staff Engineer @ <a href="https://www.rapidfort.com/" target="_blank" class="red-link"> <i class="fas fa-external-link-alt font-awesome-icon-font-size red-link"></i> RapidFort</a> : Working on scaling the application to acquire more customers and infra to support load.)
-- Senior Software Engineer @ <a href="https://www.latitudefinancial.com.au/" target="_blank" class="red-link"> <i class="fas fa-external-link-alt font-awesome-icon-font-size red-link"></i> LatitudePay </a> : Scaled the Fintech app, LatitudePay from 19k customers to more 
-  than 1 Lak customers in Singapore and Malaysia. Built Ledger management for merchant payouts, EMI Recovery processors.
-- Module Lead @ <a href="https://www.mindtree.com" target="_blank" class="red-link"><i class="fab fa-linkedin font-awesome-icon-font-size red-link"></i> MindTree</a> :Architected and developed a web application framework that automated QA testing processes for various Cisco servers, eliminating manual efforts and reducing manual testing time to near-zero, significantly improving QA efficiency.
-- Full Profile: <a href="https://www.linkedin.com/in/pawan-chaurasia/" class="red-link" target="_blank"> <i class="fab fa-linkedin font-awesome-icon-font-size red-link"></i> Pawan Chaurasia  </a>
+## My Journey
 
+- **Senior Software Engineer @ <a href="https://www.latitudefinancial.com.au/" target="_blank" class="red-link">LatitudePay</a>** (2022-2024): Led a 5-person payments team, architected settlement ledger processing 60-80k SGD daily with HSBC integration, and solved payment blocking issues affecting high-value transactions.
 
-## What Drives Me
+- **Module Lead @ <a href="https://www.mindtree.com" target="_blank" class="red-link">Mindtree (Cisco Project)</a>** (2020-2022): Built comprehensive QA automation platform for Cisco servers, reducing regression testing time by 2 days per cycle through parallel processing and smart scheduling.
 
-**🚀 Scaling Products:** From growing fintech apps to creating robust testing platforms, I’ve scaled systems to handle thousands of users, transactions, and scenarios without breaking a sweat.
+- **Full Stack Developer @ Anlyz Cyber Secure** (2019-2020): Developed malware analysis dashboard using ElasticSearch, Django, and React for real-time threat intelligence.
 
-**💡 Simplifying Complexity:** Designing and building microservices that simplify even the messiest of business logic. Efficient, scalable, and reliable solutions are my hallmark.
+- **Early Career**: Full-stack development roles building foundation skills across web technologies and enterprise systems.
 
-**☁️ Cloud & DevOps Mastery:** Crafting seamless cloud environments on AWS and GCP, with automation and Infrastructure as Code at the core of my work.
+## What I Actually Do
 
+**🔧 Backend Systems:** I build payment processors, APIs, and distributed systems that handle real money and real users. My code processes thousands of transactions and I take that responsibility seriously.
 
-## Notable Achievements
+**📊 Problem Solving:** When payment failures were blocking customers from ₹1-8L transactions, I implemented exponential backoff retry mechanisms. When CI/CD took 75 minutes, I redesigned the architecture to run in 25 minutes.
 
-#### Building Serverless Magic
-Created a Service Gateway using AWS tools like API Gateway, SQS, and Fargate to handle unpredictable long-running services. Result: streamlined operations and cost savings.
+**👥 Technical Leadership:** Code reviews, architecture decisions, and mentoring engineers. I believe good software comes from good teams, not just good code.
 
-#### Transforming Testing for Cisco
-Automated complex server tests by Dockerizing environments, providing real-time logs, and reducing developer testing time by two days.
+## Real Projects I've Built
 
-#### Making Payments Smarter
-Implemented a payment recovery strategy that improved EMI recovery rates to 90% while cutting payment platform fees by 30%.
+#### Payment Recovery System
+Diagnosed why customers were getting blocked from making payments, worked with Stripe support to understand the issue, and implemented a solution that prevented bank-level payment blocks while maintaining transaction security.
 
-#### Streamlining Deployments
-Optimized CI/CD pipelines by splitting test cases across GitLab runners, slashing test run time to just 23 minutes and integrating SonarQube to elevate code quality.
+#### Settlement Ledger for LatitudePay
+Built the financial backbone for merchant payouts - handling profit calculations, refund logic based on time windows, and real-time reconciliation with HSBC Singapore. This system processed millions in SGD daily.
 
+#### Cisco Server Testing Platform
+Automated QA testing for multiple Cisco server configurations with real-time log monitoring, parallel execution, and flexible scheduling. Eliminated manual testing bottlenecks for the entire QA team.
 
-## My Toolbox
+#### Service Gateway (Freelance)
+Serverless job processing system handling unpredictable workloads up to 3 hours - video transcription, screenshot capture, and FFMPEG processing. Migrated from traditional queue-workers to AWS Fargate containers for better resource utilization.
 
-**Languages, Frameworks & Databases:** Python (Django, FastAPI), JavaScript, Postgres, MongoDB, Redis, MQs 
+## My Technical Stack
 
-**Cloud Platforms:** AWS (Lambda, API Gateway, S3, Fargate, SQS, SNS, RDS and many more), GCP (App Engine, BigQuery, Pub/Sub, GKE, API Gateway, Cloud Functions, Cloud Run)
+**Backend:** Python (Django, FastAPI), PostgreSQL, MongoDB, Redis, WebRTC  
+**Cloud:** AWS (Fargate, Lambda, SQS, SNS), GCP, Docker, Kubernetes  
+**Integration:** Payment APIs (Stripe, HSBC), RESTful services, Microservices  
+**DevOps:** GitLab CI/CD, Nginx, containerization, performance optimization  
 
-**DevOps & Automation:** Docker, Kubernetes, Jenkins, CI/CD pipelines
+## Current Side Project
 
-**Architecture:** Microservices, Serverless Systems, API Development
+**WayFind:** Building a React Native app for hands-free motorcycle group communication using WebRTC and Bluetooth intercom integration. Solving the problem of same-brand/1KM range limitations that current intercom systems have.
 
-## Why Work With Me?
+## Why I Write Code
 
-#### I Build Solutions That Deliver:
-🔧 From proof-of-concept to production-ready systems
+I enjoy solving problems that matter - whether it's preventing payment failures for customers or optimizing deployment pipelines for developer productivity. Good software makes people's lives easier, and that's what motivates me.
 
-🌍 Scalable infrastructure for global audiences
+My blog posts about [WebSocket security](https://rjsnh1522.github.io/engineering/securing_websocket_connections/) and [FastAPI scaling](https://rjsnh1522.github.io/engineering/websocket_in_fast_api/) reflect my approach: practical solutions to real technical challenges.
 
-📈 Real-time reporting and analytics to drive decisions
+## Let's Connect
 
+<a href="https://www.linkedin.com/in/pawan-chaurasia/" class="red-link" target="_blank"><i class="fab fa-linkedin font-awesome-icon-font-size red-link"></i> LinkedIn</a>
 
+<a href="https://github.com/rjsnh1522" class="red-link" target="_blank"><i class="fab fa-github"></i> GitHub</a>
 
-## Ping Me Here
+<a href="mailto:rjsnh1522@gmail.com" class="red-link"><i class="fas fa-envelope"></i> Email</a>
 
-<a href="https://x.com/pwnchaurasia" class="red-link" target="_blank"> <i class="fab fa-twitter"></i> Twitter (X) </a>
-
-<a href="https://www.linkedin.com/in/pawan-chaurasia/" class="red-link" target="_blank"> <i class="fab fa-linkedin font-awesome-icon-font-size red-link"></i> Linkedin Profile  </a>
-
-<a href="https://github.com/rjsnh1522" class="red-link" target="_blank"> <i class="fab fa-github"></i> Github Profile</a>
-
-<a href="https://stackoverflow.com/users/5060959/pwnchaurasia" class="red-link" target="_blank"> <i class="fab fa-stack-overflow"></i> Stackoverflow profile </a>
+<a href="https://rjsnh1522.github.io/" class="red-link" target="_blank"><i class="fas fa-blog"></i> Technical Blog</a>
