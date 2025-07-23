@@ -47,5 +47,5 @@ Exploring real-time communication systems through a React Native project that in
 
 **Email:** rjsnh1522@gmail.com  
 **LinkedIn:** [linkedin.com/in/pawan-chaurasia](https://www.linkedin.com/in/pawan-chaurasia/)  
-**GitHub:** [github.com/rjsnh1522](https://github.com/rjsnh1522)  
-**Technical Blog:** [rjsnh1522.github.io](https://rjsnh1522.github.io/)
+**GitHub:** [github.com/pwnchaurasia](https://github.com/pwnchaurasia)  
+**Technical Blog:** [https://pwnchaurasia.dev](https://pwnchaurasia.dev)
