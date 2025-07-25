@@ -61,7 +61,7 @@ params:
 
   # Giscus comments
   giscus:
-    enable: true
+    enable: false
     repo: "pwnchaurasia/blog_comments"
     repoid: "R_kgDONp-vFw"
     category: "Announcements"

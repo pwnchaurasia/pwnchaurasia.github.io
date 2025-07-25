@@ -1,0 +1,50 @@
+name: Deploy Hugo Site
+
+on:
+  push:
+    branches: [ main ]  # or your default branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+        fetch-depth: 0
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: 'latest'
+        extended: true
+
+    - name: Create production config
+      run: |
+        echo "${{ secrets.PROD_CONFIG }}" > config.prod.yml
+
+    - name: Build site with production config
+      run: hugo --config config.prod.yml --minify
+
+    - name: Deploy to server
+      uses: appleboy/scp-action@v0.1.4
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        source: "public/*"
+        target: "/var/www/portfolio/"  # adjust to your nginx document root
+        strip_components: 1
+        rm: true  # removes files on target that don't exist in source
+
+    - name: Reload Nginx
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+          sudo nginx -t  # test config
+          sudo systemctl reload nginx
