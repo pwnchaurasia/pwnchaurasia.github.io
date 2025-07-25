@@ -28,6 +28,11 @@ jobs:
     - name: Build site with production config
       run: hugo --config config.prod.yml --minify
 
+    - name: Check build size
+      run: |
+        du -sh public/
+        ls -la public/
+
     - name: Deploy to server
       uses: appleboy/scp-action@v0.1.4
       with:
@@ -38,6 +43,8 @@ jobs:
         target: "/var/www/portfolio"  # adjust to your nginx document root
         strip_components: 1
         rm: true  # removes files on target that don't exist in source
+        timeout: 300s  # 5 minutes timeout
+        command_timeout: 300s
 
     - name: Reload Nginx
       uses: appleboy/ssh-action@v1.0.0
