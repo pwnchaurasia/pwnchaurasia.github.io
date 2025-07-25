@@ -250,6 +250,9 @@ h2.heading{
         max-width: 100%;
         min-width: 100%;
     }
+    .social-icons{
+        right: 0px;
+    }
 
 
 }
@@ -294,7 +297,13 @@ h2.heading{
         --table-margin-top: 1.5rem;
         --table-margin-bottom: 1.5rem;
         --li-padding: 0.3rem 0;
-        --highlighter-color: #795548
+        --highlighter-color: #795548;
+        --body-background: #0C131D;
+        --body-background: #1f2225;
+        --highlighter-color: #df9a57;
+        --emphesis: #E1C999;
+        --primary: #d3d5d6;
+        --main-width: 900px !important;
     }
     .list-container h1{
 
