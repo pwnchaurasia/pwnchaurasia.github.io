@@ -1,51 +1,30 @@
 +++
-title = "Who Am I?"
+title = "About Me"
 +++
 
-A Senior Software Engineer with 9 years of experience designing and implementing scalable backend systems, with deep expertise in payment processing, distributed architectures, and infrastructure automation.
+I'm a software engineer who loves building things - both digital and physical. When I'm not writing code, you'll probably find me on my Royal Enfield Himalayan, exploring roads less traveled. In 2022, I spent 18 days riding through Leh Ladakh, which was one of those experiences that reminds you why you love being alive.
 
-## Professional Experience
+I'm currently based in Bangalore, though I'm originally from Dhanbad, Jharkhand. There's something about this city that keeps me energized - maybe it's the mix of old and new, or just the fact that there's always something interesting happening in the tech scene here.
 
-**Senior Software Engineer, LatitudePay** (2022-2024)  
-Led payments engineering for a fintech platform serving Singapore and Malaysia markets. Architected settlement ledger system processing 60-80k SGD in daily transaction volume with HSBC integration. Managed a 5-person engineering team responsible for payment processing, recovery systems, and merchant reconciliation infrastructure.
+## What I Do
 
-**Module Lead, Mindtree (Cisco Division)** (2020-2022)  
-Designed and implemented automated testing infrastructure for Cisco's server product line. Built distributed testing framework that reduced regression cycle time by 48 hours through parallel execution and intelligent scheduling algorithms. Delivered real-time monitoring capabilities for QA operations.
+I've been building software for about 9 years now, mostly backend systems and distributed architectures. What gets me excited isn't just the coding part - it's solving problems end to end. I love that moment when you can trace a user's problem all the way through the system and fix it at the root. There's something deeply satisfying about building something complex that just works.
 
-**Full Stack Developer, Anlyz Cyber Secure** (2019-2020)  
-Developed threat intelligence platform using ElasticSearch and Django for real-time malware analysis. Containerized legacy applications and designed APIs for security data integration.
+I'm currently working on a side project called Wayfind for the motorcycle community - trying to solve some real problems I've experienced on long rides. It's one of those projects where engineering meets passion, which is when I do my best work.
 
-## Technical Expertise
+## Beyond Code
 
-**Systems Architecture:** Microservices design, API development, distributed systems, event-driven architectures  
-**Backend Technologies:** Python (Django, FastAPI), PostgreSQL, MongoDB, Redis, message queues  
-**Cloud Infrastructure:** AWS (Lambda, Fargate, SQS, SNS), GCP, Docker, Kubernetes  
-**Payment Systems:** Transaction processing, settlement mechanisms, financial reconciliation  
-**DevOps:** CI/CD pipeline optimization, containerization, infrastructure automation  
+I have this weird habit of buying furniture and gadgets that require assembly just because I enjoy putting things together. There's something therapeutic about following instructions, using your hands, and ending up with something functional. Maybe it's the same part of my brain that likes architecting systems - everything has its place and purpose.
 
-## Notable Engineering Work
+I read a lot - mostly books that people recommend to me rather than following any particular system. Right now I'm into philosophy (Nietzsche has been fascinating) and anything related to engineering and systems thinking. I started this blog partly to build a writing habit, because I've found that writing helps me think more clearly about both technical problems and life in general.
 
-**Financial Settlement System**  
-Designed and implemented real-time settlement ledger for merchant payouts with automated profit/loss calculations, refund processing based on business rules, and multi-currency reconciliation. System handles complex financial workflows while maintaining audit compliance.
+## Currently
 
-**Payment Recovery Infrastructure**  
-Developed exponential backoff retry mechanism for failed payment processing, reducing customer transaction blocks and improving payment success rates. Integrated with Stripe's APIs and banking systems to handle edge cases in payment flows.
-
-**Distributed Testing Platform**  
-Built scalable QA automation framework supporting parallel test execution across multiple server configurations. Implemented intelligent resource allocation and real-time logging infrastructure for enterprise-scale testing operations.
-
-**Serverless Processing Engine** (Contract Work)  
-Architected serverless job processing system for UX research workflows, handling variable workloads from minutes to hours. Implemented specialized workers for video processing, transcription, and automated screenshot generation using AWS Fargate.
-
-## Current Technical Interests
-
-Exploring real-time communication systems through a React Native project that integrates WebRTC with Bluetooth hardware for motorcycle communication. Focus on solving interoperability challenges between different hardware manufacturers.
-
-
-
-## Contact
+Working on distributed systems in the fintech space, riding whenever I can, and always planning the next long trip. If you're into motorcycles, system architecture, or just want to chat about books, feel free to reach out.
 
 **Email:** rjsnh1522@gmail.com  
-**LinkedIn:** [linkedin.com/in/pawan-chaurasia](https://www.linkedin.com/in/pawan-chaurasia/)  
+**LinkedIn:** [linkedin.com/in/pawan-chaurasia](https://www.linkedin.com/in/pawan-chaurasia/)   
 **GitHub:** [github.com/pwnchaurasia](https://github.com/pwnchaurasia)  
-**Technical Blog:** [https://pwnchaurasia.dev](https://pwnchaurasia.dev)
+**X (Twitter):** [x.com/pwnchaurasia](https://x.com/pwnchaurasia)
+
+

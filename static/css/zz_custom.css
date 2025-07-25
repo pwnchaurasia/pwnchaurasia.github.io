@@ -1,14 +1,17 @@
 :root {
     --body-background: #0C131D;
+    --body-background: #1f2225;
     --highlighter-color: #df9a57;
-    /* --content-primary: #DDDDDD; */
     --emphesis: #E1C999;
-    /* --content-secondary: #dfe0e2; */
+    --primary: #d3d5d6;
+
+
 }
 .dark {
     background-color: var(--body-background);
     --content-primary: #BFBFBF !important;
     --font-body: 'Poppins', sans-serif;
+    --content-secondary: #CFCFCF !important;
 }
 
 .span_highlight{
@@ -16,6 +19,9 @@
 }
 p code{
     background: #3e3624;
+}
+.line-summary{
+    color: var(--content-secondary);
 }
 
 @media only screen and (min-width: 2560px) {

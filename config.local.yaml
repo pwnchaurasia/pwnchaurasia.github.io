@@ -1,4 +1,4 @@
-baseURL: '/'
+baseURL: 'http://localhost:1313'
 languageCode: 'en-us'
 title: 'Pawan Chaurasia'
 theme: 'typo'
@@ -17,20 +17,20 @@ params:
     - name: "ME"
       url: "/me"
       weight: 2
-    - name: "ENGINEERING"
-      url: "/engineering"
+    - name: "POSTS"
+      url: "/posts"
       weight: 3
-      identifier: Engineering
-    - name: "ADVENTURE"
-      url: "/adventure"
+      identifier: Posts
+    - name: "NOTES"
+      url: "/notes"
       weight: 4
-      identifier: Adventure
+      identifier: Notes
 
   mainSections:
-    - Adventure
-    - Engineering
+    - Posts
+    - Notes
 
-  description: "A Tech and Moto Blog"
+  description: "Writing to think, reading to grow"
 
   # Appearance settings
   theme: 'dark'
