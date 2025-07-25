@@ -1,3 +1,3 @@
 +++
-title = ""
+title = "Posts"
 +++

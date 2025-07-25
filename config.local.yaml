@@ -11,19 +11,16 @@ googleAnalytics: "G-xxxxxxxxx"
 
 params:
   menu:
-    - name: "HOME"
-      url: "/"
+    - name: "POSTS"
+      url: "/posts"
       weight: 1
     - name: "ME"
       url: "/me"
       weight: 2
-    - name: "POSTS"
-      url: "/posts"
-      weight: 3
       identifier: Posts
     - name: "NOTES"
       url: "/notes"
-      weight: 4
+      weight: 3
       identifier: Notes
 
   mainSections:
@@ -45,25 +42,27 @@ params:
 
   # Collection to display on home
   homeCollectionTitle: 'Posts'
-  homeCollection: ["adventure", "engineering"]
+  homeCollection: ["posts", "notes"]
 
   isTrackerEnabled: false
   trackerDomainId: "6193fb78-412b-440a-809c-fc50712ae7a1"
   trackerBaseUrl: 'http://0.0.0.0:8080'  
 
-  # Social icons
-#  social:
-#    - name: "linkedin"
-#      url: "https://www.linkedin.com/in/pawan-chaurasia/"
-#    - name: "stackoverflow"
-#      url: "https://stackoverflow.com/users/5060959/pwnchaurasia"
-#    - name: "github"
-#      url: "https://github.com/rjsnh1522"
+   #Social icons
+  social:
+    - name: "minutemailer"
+      url: "mailto:rjsnh1522@gmail.com"
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/pawan-chaurasia/"
+    - name: "x"
+      url: "https://stackoverflow.com/users/5060959/pwnchaurasia"
+    - name: "github"
+      url: "https://github.com/pwnchaurasia"
 
   # Giscus comments
   giscus:
-    enable: false
-    repo: "rjsnh1522/blog_comments"
+    enable: true
+    repo: "pwnchaurasia/blog_comments"
     repoid: "R_kgDONp-vFw"
     category: "Announcements"
     categoryid: "DIC_kwDONp-vF84Cl_FD"

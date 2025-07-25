@@ -1,17 +1,9 @@
 +++
-title = ""
+title = "Notes"
 +++
 
-[//]: # (## Moto Posts)
-As an avid rider, this section of my personal space is dedicated to sharing my passion and knowledge about motorcycles. 
-Motorcycles are thrilling, fast, and powerful machines, but they can also be dangerous if safety measures aren't taken seriously. 
-Whether you're a new rider or a seasoned one, it's important to treat these beautiful pieces of engineering with respect and care.
+This is where I document what I take away from books I read - not reviews or expert analysis, just what resonated with me or completely went over my head.
 
+I prefer books that people recommend, so you'll find notes on everything from engineering and philosophy to mythology and sci-fi. My interpretations might be wrong, but writing helps me think more clearly.
 
-I look forward to hearing about your riding experiences. 
-
-Ride safe!!!
-
-
-
-
+Consider these snapshots of how I understood something at a particular moment in time.
