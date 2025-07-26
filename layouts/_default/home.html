@@ -60,7 +60,7 @@
             {{ end }}
 
 
-            {{ $posts := where .Site.RegularPages "Draft" false }}
+            {{ $posts := where .Site.RegularPages "Section" "in" (slice "posts" "notes") }}
             {{ range $post := $posts }}
             <div class="post-line">
                 <div class="metadata-wrap">

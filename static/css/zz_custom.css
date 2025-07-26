@@ -5,6 +5,10 @@
     --emphesis: #E1C999;
     --primary: #d3d5d6;
     --main-width: 900px !important;
+    --h3-font-size: 1.8em;
+    --h4-font-size: 1.6em;
+    --h5-font-size: 1.4em;
+    --h6-font-size: 1.2em;
 }
 .dark {
     background-color: var(--body-background);
@@ -59,7 +63,29 @@ p code{
 #TableOfContents a{
     text-decoration: none;
 }
-
+h3{
+    font-size: var(--h3-font-size);
+}
+h4{
+    font-size: var(--h4-font-size);
+}
+h5{
+    font-size: var(--h5-font-size);
+}
+h6{
+    font-size: var(--h6-font-size);
+}
+.single-content h1.heading,
+.single-content h2.heading,
+.single-content h3.heading,
+.single-content h4.heading,
+.single-content h5.heading,
+.single-content h6.heading{
+    color: var(--highlighter-color);
+}
+#TableOfContents li a:hover{
+    color: var(--highlighter-color);
+}
 @media only screen and (min-width: 2560px) {
     :root {
         --main-width: 1200px;
@@ -107,14 +133,6 @@ p code{
     strong{
         color: var(--highlighter-color);
     }
-    h4{
-        font-size: 20px;
-        color: var(--highlighter-color);
-    }
-    h5{
-        font-size: 18.9px;
-        color: var(--highlighter-color);
-    }
     li{
         padding: var(--li-padding);
     }
@@ -145,7 +163,8 @@ strong {
 .line-title a{
     color: var(--highlighter-color);
 }
-.single-content h2.heading{
+.single-content h2.heading,
+.single-content h3.heading{
     color: var(--highlighter-color);
 }
 
