@@ -90,5 +90,5 @@ markup:
     lineNumbers: true
   tableOfContents:
     startLevel: 2  # Start from H2
-    endLevel: 4    # Include up to H4
+    endLevel: 5    # Include up to H4
     ordered: false # Use bullet points instead of numbers
