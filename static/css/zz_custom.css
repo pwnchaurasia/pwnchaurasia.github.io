@@ -101,7 +101,9 @@ p code{
         --table-margin-bottom: 1.5rem;
         --li-padding: 0.3rem 0;
     }
-
+    .dark {
+        --main-width: 1200px !important;
+    }
     strong{
         color: var(--highlighter-color);
     }
