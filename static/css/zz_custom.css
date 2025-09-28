@@ -27,7 +27,28 @@ p code{
 .line-summary{
     color: var(--content-secondary);
 }
+.image-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin: 20px 0;
+}
 
+.image-row img {
+    max-width: 48%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .image-row {
+        flex-direction: column;
+    }
+    .image-row img {
+        max-width: 100%;
+    }
+}
 .social-icons {
     position: fixed;
     right: 20px;

@@ -11,16 +11,19 @@ googleAnalytics: "G-xxxxxxxxx"
 
 params:
   menu:
+    - name: "HOME"
+      url: "/"
+      weight: 1
     - name: "POSTS"
       url: "/posts"
-      weight: 1
+      weight: 2
     - name: "ME"
       url: "/me"
-      weight: 2
+      weight: 3
       identifier: Posts
     - name: "NOTES"
       url: "/notes"
-      weight: 3
+      weight: 4
       identifier: Notes
 
   mainSections:
@@ -55,7 +58,7 @@ params:
     - name: "linkedin"
       url: "https://www.linkedin.com/in/pawan-chaurasia/"
     - name: "x"
-      url: "https://stackoverflow.com/users/5060959/pwnchaurasia"
+      url: "https://x.com/pwnchaurasia"
     - name: "github"
       url: "https://github.com/pwnchaurasia"
 
